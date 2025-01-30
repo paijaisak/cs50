@@ -1,10 +1,11 @@
-#include "main.h"
+#include "encrypt.h"
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-string
-encrypt (string plaintext, string cipher)
+int
+main ()
 {
-  return "ifmmp";
+  encrypt ("abc", "def");
+  return 0;
 }

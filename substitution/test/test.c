@@ -1,5 +1,5 @@
+#include "encrypt.h"
 #include <check.h>
-#include <main.h>
 #include <stdlib.h>
 #include <string.h>
 
