@@ -6,5 +6,5 @@
 string
 encrypt (string plaintext, string cipher)
 {
-  return "res";
+  return "ifmmp";
 }

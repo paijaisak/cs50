@@ -3,9 +3,34 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Define a test case
+// Test case for substitution cipher with key 1
+START_TEST (test_substitution_cipher_key1)
+{
+  char plaintext[] = "hello";
+  char expected[] = "ifmmp"; // Example expected output with key
+                             // "bcdefghijklmnopqrstuvwxyza"
+  string ciphertext;
+  char cipher[] = "bcdefghijklmnopqrstuvwxyza";
 
-START_TEST (test01) { ck_assert_int_eq (5, 5); }
+  ciphertext = encrypt (plaintext, cipher);
+
+  ck_assert_str_eq (ciphertext, expected);
+}
+END_TEST
+
+// Test case for substitution cipher with key 2
+START_TEST (test_substitution_cipher_key2)
+{
+  char plaintext[] = "hello";
+  char expected[] = "khoor"; // Example expected output with key
+                             // "defghijklmnopqrstuvwxyzabc"
+  string ciphertext;
+  char key[] = "defghijklmnopqrstuvwxyzabc";
+
+  ciphertext = encrypt (plaintext, key);
+
+  ck_assert_str_eq (ciphertext, expected);
+}
 END_TEST
 
 // Create a suite and add the test case to it
@@ -18,7 +43,8 @@ readability_suite (void)
   s = suite_create ("Substitution");
 
   tc_core = tcase_create ("Core");
-  tcase_add_test (tc_core, test01);
+  tcase_add_test (tc_core, test_substitution_cipher_key1);
+  tcase_add_test (tc_core, test_substitution_cipher_key2);
 
   suite_add_tcase (s, tc_core);
 
