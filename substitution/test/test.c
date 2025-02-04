@@ -33,6 +33,21 @@ START_TEST (test_substitution_cipher_key2)
 }
 END_TEST
 
+START_TEST (test_substitution_cipher_key3)
+{
+  char plaintext[] = "flee at once. we are discovered!";
+  char expected[]
+      = "siaa zq lkba. va zoa rfpbluaoar!"; // Example expected output with key
+                                            // "defghijklmnopqrstuvwxyzabc"
+  string ciphertext;
+  char key[] = "zebrascdfghijklmnopqtuvwxy";
+
+  ciphertext = encrypt (plaintext, key);
+
+  ck_assert_str_eq (ciphertext, expected);
+}
+END_TEST
+
 // Create a suite and add the test case to it
 Suite *
 readability_suite (void)
@@ -45,6 +60,7 @@ readability_suite (void)
   tc_core = tcase_create ("Core");
   tcase_add_test (tc_core, test_substitution_cipher_key1);
   tcase_add_test (tc_core, test_substitution_cipher_key2);
+  tcase_add_test (tc_core, test_substitution_cipher_key3);
 
   suite_add_tcase (s, tc_core);
 
