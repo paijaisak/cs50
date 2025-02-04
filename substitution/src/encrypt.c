@@ -12,19 +12,25 @@ string encrypt(string plaintext, string cipher)
 
         for (int i = 0; i < length; i++)
         {
+                char c = plaintext[i];
+
                 // if isn't a letter, just store it
-                if (!isalpha(plaintext[i]))
+                if (!isalpha(c))
                 {
-                        res[i] = plaintext[i];
+                        res[i] = c;
+                }
+
+                else if (isupper(c))
+                {
+                        // subtract ascii index to count from zero
+                        int cipher_index = (int)(c - 65);
+                        res[i] = toupper(cipher[cipher_index]);
                 }
 
                 else
                 {
-                        // assuming uppercase, ascii index minus 65 counts letter distance from
-                        // zero.
-                        char upper = toupper(plaintext[i]);
-                        int cipher_index = (int)(upper - 65);
-
+                        // subtract ascii index to count from zero
+                        int cipher_index = (int)(c - 97);
                         res[i] = cipher[cipher_index];
                 }
         }
