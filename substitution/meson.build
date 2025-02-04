@@ -1,6 +1,6 @@
 project('substitution', 'c')
 
-src_files = ['src/encrypt.c', 'src/cs50.c']
+src_files = ['src/encipher.c', 'src/cs50.c']
 
 inc_dir = include_directories('include')
 

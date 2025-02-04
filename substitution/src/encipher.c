@@ -1,10 +1,10 @@
-#include "encrypt.h"
 #include "cs50.h"
+#include "encipher.h"
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
 
-string encrypt(string plaintext, string cipher)
+string encipher(string plaintext, string cipher)
 {
         int length = strlen(plaintext);
 

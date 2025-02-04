@@ -1,4 +1,4 @@
-#include "encrypt.h"
+#include "encipher.h"
 #include <check.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,7 +12,7 @@ START_TEST(test_substitution_cipher_key1)
         string ciphertext;
         char cipher[] = "bcdefghijklmnopqrstuvwxyza";
 
-        ciphertext = encrypt(plaintext, cipher);
+        ciphertext = encipher(plaintext, cipher);
 
         ck_assert_str_eq(ciphertext, expected);
 }
@@ -27,7 +27,7 @@ START_TEST(test_substitution_cipher_key2)
         string ciphertext;
         char key[] = "defghijklmnopqrstuvwxyzabc";
 
-        ciphertext = encrypt(plaintext, key);
+        ciphertext = encipher(plaintext, key);
 
         ck_assert_str_eq(ciphertext, expected);
 }
@@ -42,7 +42,7 @@ START_TEST(test_substitution_cipher_key3)
         string ciphertext;
         char key[] = "zebrascdfghijklmnopqtuvwxy";
 
-        ciphertext = encrypt(plaintext, key);
+        ciphertext = encipher(plaintext, key);
 
         ck_assert_str_eq(ciphertext, expected);
 }
