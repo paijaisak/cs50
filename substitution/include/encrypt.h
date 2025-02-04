@@ -3,6 +3,6 @@
 
 #include "cs50.h"
 
-string encrypt (string plaintext, string cipher);
+string encrypt(string plaintext, string cipher);
 
 #endif // READABILITY_H

@@ -1,14 +1,16 @@
+#include "cs50.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "cs50.h"
 
 int number_of_digits(const long number)
 {
     long res = number;
 
-    if (res == 0) return 0;
+    if (res == 0)
+        return 0;
 
-    if (res / 10 == 0) return 1;
+    if (res / 10 == 0)
+        return 1;
 
     return number_of_digits(res / 10) + 1;
 }
@@ -19,7 +21,7 @@ int* card_into_array(const long card, const int length)
     long number = card;
 
     // dynamic initialization, since length is unknown at compile time
-    int* res = (int*) malloc(length * sizeof(int));
+    int* res = (int*)malloc(length * sizeof(int));
 
     if (res == NULL)
     {
@@ -27,7 +29,7 @@ int* card_into_array(const long card, const int length)
         return 0;
     }
 
-    for (int i = length - 1; i>= 0; i--)
+    for (int i = length - 1; i >= 0; i--)
     {
         res[i] = number % 10;
         number /= 10;
@@ -36,7 +38,7 @@ int* card_into_array(const long card, const int length)
     return res;
 }
 
-int at_index(const int * card_array, const int length, int index)
+int at_index(const int* card_array, const int length, int index)
 {
     if (index > length || index < 0)
     {
@@ -58,10 +60,10 @@ bool is_valid(const int* card_array, const int length)
     {
         if (i > length || i < 0)
         {
-          break;
+            break;
         }
 
-        if ((card_array[i]*2) >= 10)
+        if ((card_array[i] * 2) >= 10)
         {
             // 1 for the 10-digit place
             sum_a += 1;
@@ -72,22 +74,22 @@ bool is_valid(const int* card_array, const int length)
         {
             sum_a += card_array[i] * 2;
         }
-
     }
 
-    for (int i = length - 1; i >= 0; i -=2)
+    for (int i = length - 1; i >= 0; i -= 2)
     {
         sum_b += card_array[i];
     }
 
     sum = sum_a + sum_b;
 
-    if (sum % 10 != 0) return false;
+    if (sum % 10 != 0)
+        return false;
 
     return true;
 }
 
-int main ()
+int main()
 {
     const long card = get_long("Number: ");
 
@@ -167,9 +169,8 @@ int main ()
     }
     else
     {
-      printf("INVALID\n");
+        printf("INVALID\n");
     }
 
     free(card_array);
 }
-

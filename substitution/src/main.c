@@ -3,9 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int
-main ()
+int main()
 {
-  encrypt ("abc", "def");
-  return 0;
+    encrypt("abc", "def");
+    return 0;
 }

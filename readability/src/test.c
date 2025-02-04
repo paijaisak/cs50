@@ -47,102 +47,101 @@ string grade16 = "A large class of computational problems involve the "
                  "boolean formulas and elements of other countable domains.";
 
 // Define a test case
-START_TEST (test_example) { ck_assert_str_eq ("hello", "hello"); }
+START_TEST(test_example) { ck_assert_str_eq("hello", "hello"); }
 END_TEST
 
-START_TEST (test01) { ck_assert_int_eq (test_score (grade0), 0); }
+START_TEST(test01) { ck_assert_int_eq(test_score(grade0), 0); }
 END_TEST
 
-START_TEST (test02) { ck_assert_int_eq (test_score (grade2), 2); }
+START_TEST(test02) { ck_assert_int_eq(test_score(grade2), 2); }
 END_TEST
 
-START_TEST (test03) { ck_assert_int_eq (test_score (grade3), 3); }
+START_TEST(test03) { ck_assert_int_eq(test_score(grade3), 3); }
 END_TEST
 
-START_TEST (test04) { ck_assert_int_eq (test_score (grade5), 5); }
+START_TEST(test04) { ck_assert_int_eq(test_score(grade5), 5); }
 END_TEST
 
-START_TEST (test05) { ck_assert_int_eq (test_score (grade7), 7); }
+START_TEST(test05) { ck_assert_int_eq(test_score(grade7), 7); }
 END_TEST
 
-START_TEST (test06) { ck_assert_int_eq (test_score (grade8a), 8); }
+START_TEST(test06) { ck_assert_int_eq(test_score(grade8a), 8); }
 END_TEST
 
-START_TEST (test07) { ck_assert_int_eq (test_score (grade8b), 8); }
+START_TEST(test07) { ck_assert_int_eq(test_score(grade8b), 8); }
 END_TEST
 
-START_TEST (test08) { ck_assert_int_eq (test_score (grade9), 9); }
+START_TEST(test08) { ck_assert_int_eq(test_score(grade9), 9); }
 END_TEST
 
-START_TEST (test09) { ck_assert_int_eq (test_score (grade10), 10); }
+START_TEST(test09) { ck_assert_int_eq(test_score(grade10), 10); }
 END_TEST
 
-START_TEST (test10) { ck_assert_int_eq (test_score (grade16), 16); }
+START_TEST(test10) { ck_assert_int_eq(test_score(grade16), 16); }
 END_TEST
 
-START_TEST (count_letters01)
+START_TEST(count_letters01)
 {
-  ck_assert_int_eq (count_letters ("Abk, f asdk o23j."), 10);
+    ck_assert_int_eq(count_letters("Abk, f asdk o23j."), 10);
 }
 END_TEST
 
-START_TEST (count_words01) { ck_assert_int_eq (count_words (grade0), 8); }
+START_TEST(count_words01) { ck_assert_int_eq(count_words(grade0), 8); }
 END_TEST
 
-START_TEST (count_sentences01)
+START_TEST(count_sentences01)
 {
-  ck_assert_int_eq (count_sentences (grade0), 4);
+    ck_assert_int_eq(count_sentences(grade0), 4);
 }
 END_TEST
 
 // Create a suite and add the test case to it
-Suite *
-readability_suite (void)
+Suite*
+readability_suite(void)
 {
-  Suite *s;
-  TCase *tc_core;
+    Suite* s;
+    TCase* tc_core;
 
-  s = suite_create ("Readability");
+    s = suite_create("Readability");
 
-  tc_core = tcase_create ("Core");
-  tcase_add_test (tc_core, test_example);
-  tcase_add_test (tc_core, test01);
-  tcase_add_test (tc_core, test02);
-  tcase_add_test (tc_core, test03);
-  tcase_add_test (tc_core, test04);
-  tcase_add_test (tc_core, test05);
-  tcase_add_test (tc_core, test06);
-  tcase_add_test (tc_core, test07);
-  tcase_add_test (tc_core, test08);
-  tcase_add_test (tc_core, test09);
-  tcase_add_test (tc_core, test10);
-  tcase_add_test (tc_core, count_letters01);
-  tcase_add_test (tc_core, count_words01);
-  tcase_add_test (tc_core, count_sentences01);
+    tc_core = tcase_create("Core");
+    tcase_add_test(tc_core, test_example);
+    tcase_add_test(tc_core, test01);
+    tcase_add_test(tc_core, test02);
+    tcase_add_test(tc_core, test03);
+    tcase_add_test(tc_core, test04);
+    tcase_add_test(tc_core, test05);
+    tcase_add_test(tc_core, test06);
+    tcase_add_test(tc_core, test07);
+    tcase_add_test(tc_core, test08);
+    tcase_add_test(tc_core, test09);
+    tcase_add_test(tc_core, test10);
+    tcase_add_test(tc_core, count_letters01);
+    tcase_add_test(tc_core, count_words01);
+    tcase_add_test(tc_core, count_sentences01);
 
-  suite_add_tcase (s, tc_core);
+    suite_add_tcase(s, tc_core);
 
-  return s;
+    return s;
 }
 
 // Main function to run the tests
-int
-main (void)
+int main(void)
 {
-  int number_failed;
-  Suite *s;
-  SRunner *sr;
+    int number_failed;
+    Suite* s;
+    SRunner* sr;
 
-  s = readability_suite ();
-  sr = srunner_create (s);
+    s = readability_suite();
+    sr = srunner_create(s);
 
-  srunner_set_xml (sr, "test_results.xml");
-  srunner_set_fork_status (sr, CK_NOFORK);
+    srunner_set_xml(sr, "test_results.xml");
+    srunner_set_fork_status(sr, CK_NOFORK);
 
-  srunner_run_all (sr, CK_VERBOSE);
-  number_failed = srunner_ntests_failed (sr);
+    srunner_run_all(sr, CK_VERBOSE);
+    number_failed = srunner_ntests_failed(sr);
 
-  srunner_free (sr);
+    srunner_free(sr);
 
-  return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
+    return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
