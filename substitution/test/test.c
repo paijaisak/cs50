@@ -3,50 +3,114 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Test case for substitution cipher with key 1
-START_TEST(test_substitution_cipher_key1)
+START_TEST(encrypt1)
 {
-        char plaintext[] = "Hello!";
-        char expected[] = "Ifmmp!"; // Example expected output with key
-                                    // "bcdefghijklmnopqrstuvwxyza"
-        string ciphertext;
-        char cipher[] = "bcdefghijklmnopqrstuvwxyza";
+        char plaintext[] = "A";
+        char expected[] = "Z";
 
-        ciphertext = encipher(plaintext, cipher);
+        char cipher[] = "ZYXWVUTSRQPONMLKJIHGFEDCBA";
+
+        string ciphertext = encipher(plaintext, cipher);
 
         ck_assert_str_eq(ciphertext, expected);
 }
 END_TEST
 
-// Test case for substitution cipher with key 2
-START_TEST(test_substitution_cipher_key2)
+START_TEST(encrypt2)
 {
-        char plaintext[] = "Hello!";
-        char expected[] = "Khoor!"; // Example expected output with key
-                                    // "defghijklmnopqrstuvwxyzabc"
-        string ciphertext;
-        char key[] = "defghijklmnopqrstuvwxyzabc";
+        char plaintext[] = "a";
+        char expected[] = "z";
 
-        ciphertext = encipher(plaintext, key);
+        char cipher[] = "ZYXWVUTSRQPONMLKJIHGFEDCBA";
+
+        string ciphertext = encipher(plaintext, cipher);
 
         ck_assert_str_eq(ciphertext, expected);
 }
-END_TEST
 
-START_TEST(test_substitution_cipher_key3)
+START_TEST(encrypt3)
 {
-        char plaintext[] = "Flee at once. We are discovered!";
-        char expected[]
-            = "Siaa zq lkba. Va zoa rfpbluaoar!"; // Example expected output with key
-                                                  // "defghijklmnopqrstuvwxyzabc"
-        string ciphertext;
-        char key[] = "zebrascdfghijklmnopqtuvwxy";
+        char plaintext[] = "ABC";
+        char expected[] = "NJQ";
 
-        ciphertext = encipher(plaintext, key);
+        char cipher[] = "NJQSUYBRXMOPFTHZVAWCGILKED";
+
+        string ciphertext = encipher(plaintext, cipher);
 
         ck_assert_str_eq(ciphertext, expected);
 }
-END_TEST
+
+START_TEST(encrypt4)
+{
+        char plaintext[] = "XyZ";
+        char expected[] = "KeD";
+
+        char cipher[] = "NJQSUYBRXMOPFTHZVAWCGILKED";
+
+        string ciphertext = encipher(plaintext, cipher);
+
+        ck_assert_str_eq(ciphertext, expected);
+}
+
+START_TEST(encrypt5)
+{
+        char plaintext[] = "This is CS50";
+        char expected[] = "Cbah ah KH50";
+
+        char cipher[] = "YUKFRNLBAVMWZTEOGXHCIPJSQD";
+
+        string ciphertext = encipher(plaintext, cipher);
+
+        ck_assert_str_eq(ciphertext, expected);
+}
+
+START_TEST(encrypt6)
+{
+        char plaintext[] = "This is CS50";
+        char expected[] = "Cbah ah KH50";
+
+        char cipher[] = "yukfrnlbavmwzteogxhcipjsqd";
+
+        string ciphertext = encipher(plaintext, cipher);
+
+        ck_assert_str_eq(ciphertext, expected);
+}
+
+START_TEST(encrypt7)
+{
+        char plaintext[] = "This is CS50";
+        char expected[] = "Cbah ah KH50";
+
+        char cipher[] = "YUKFRNLBAVMWZteogxhcipjsqd";
+
+        string ciphertext = encipher(plaintext, cipher);
+
+        ck_assert_str_eq(ciphertext, expected);
+}
+
+START_TEST(encrypt8)
+{
+        char plaintext[] = "The quick brown fox jumps over the lazy dog";
+        char expected[] = "Rqx tokug wljif nja eozby jhxl rqx cdmv sjp";
+
+        char cipher[] = "DWUSXNPQKEGCZFJBTLYROHIAVM";
+
+        string ciphertext = encipher(plaintext, cipher);
+
+        ck_assert_str_eq(ciphertext, expected);
+}
+
+START_TEST(encrypt9)
+{
+        char plaintext[] = "Shh... Don't tell!";
+        char expected[] = "Yqq... Sjf'r rxcc!";
+
+        char cipher[] = "DWUSXNPQKEGCZFJBTLYROHIAVM";
+
+        string ciphertext = encipher(plaintext, cipher);
+
+        ck_assert_str_eq(ciphertext, expected);
+}
 
 // Create a suite and add the test case to it
 Suite*
@@ -58,9 +122,16 @@ readability_suite(void)
         s = suite_create("Substitution");
 
         tc_core = tcase_create("Core");
-        tcase_add_test(tc_core, test_substitution_cipher_key1);
-        tcase_add_test(tc_core, test_substitution_cipher_key2);
-        tcase_add_test(tc_core, test_substitution_cipher_key3);
+
+        tcase_add_test(tc_core, encrypt1);
+        tcase_add_test(tc_core, encrypt2);
+        tcase_add_test(tc_core, encrypt3);
+        tcase_add_test(tc_core, encrypt4);
+        tcase_add_test(tc_core, encrypt5);
+        tcase_add_test(tc_core, encrypt6);
+        tcase_add_test(tc_core, encrypt7);
+        tcase_add_test(tc_core, encrypt8);
+        tcase_add_test(tc_core, encrypt9);
 
         suite_add_tcase(s, tc_core);
 
