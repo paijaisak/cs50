@@ -1,8 +1,9 @@
-#ifndef READABILITY_H
-#define READABILITY_H
+#ifndef ENCIPHER_H
+#define ENCIPHER_H
 
 #include "cs50.h"
 
 string encipher(string plaintext, string cipher);
+int validate_cipher(string cipher);
 
-#endif // READABILITY_H
+#endif // ENCIPHER_H

@@ -10,6 +10,8 @@ START_TEST(encrypt1)
 
         char cipher[] = "ZYXWVUTSRQPONMLKJIHGFEDCBA";
 
+        ck_assert(validate_cipher(cipher));
+
         string ciphertext = encipher(plaintext, cipher);
 
         ck_assert_str_eq(ciphertext, expected);
@@ -23,6 +25,8 @@ START_TEST(encrypt2)
 
         char cipher[] = "ZYXWVUTSRQPONMLKJIHGFEDCBA";
 
+        ck_assert(validate_cipher(cipher));
+
         string ciphertext = encipher(plaintext, cipher);
 
         ck_assert_str_eq(ciphertext, expected);
@@ -34,6 +38,8 @@ START_TEST(encrypt3)
         char expected[] = "NJQ";
 
         char cipher[] = "NJQSUYBRXMOPFTHZVAWCGILKED";
+
+        ck_assert(validate_cipher(cipher));
 
         string ciphertext = encipher(plaintext, cipher);
 
@@ -47,6 +53,8 @@ START_TEST(encrypt4)
 
         char cipher[] = "NJQSUYBRXMOPFTHZVAWCGILKED";
 
+        ck_assert(validate_cipher(cipher));
+
         string ciphertext = encipher(plaintext, cipher);
 
         ck_assert_str_eq(ciphertext, expected);
@@ -58,6 +66,8 @@ START_TEST(encrypt5)
         char expected[] = "Cbah ah KH50";
 
         char cipher[] = "YUKFRNLBAVMWZTEOGXHCIPJSQD";
+
+        ck_assert(validate_cipher(cipher));
 
         string ciphertext = encipher(plaintext, cipher);
 
@@ -71,6 +81,8 @@ START_TEST(encrypt6)
 
         char cipher[] = "yukfrnlbavmwzteogxhcipjsqd";
 
+        ck_assert(validate_cipher(cipher));
+
         string ciphertext = encipher(plaintext, cipher);
 
         ck_assert_str_eq(ciphertext, expected);
@@ -82,6 +94,8 @@ START_TEST(encrypt7)
         char expected[] = "Cbah ah KH50";
 
         char cipher[] = "YUKFRNLBAVMWZteogxhcipjsqd";
+
+        ck_assert(validate_cipher(cipher));
 
         string ciphertext = encipher(plaintext, cipher);
 
@@ -95,6 +109,8 @@ START_TEST(encrypt8)
 
         char cipher[] = "DWUSXNPQKEGCZFJBTLYROHIAVM";
 
+        ck_assert(validate_cipher(cipher));
+
         string ciphertext = encipher(plaintext, cipher);
 
         ck_assert_str_eq(ciphertext, expected);
@@ -106,6 +122,8 @@ START_TEST(encrypt9)
         char expected[] = "Yqq... Sjf'r rxcc!";
 
         char cipher[] = "DWUSXNPQKEGCZFJBTLYROHIAVM";
+
+        ck_assert(validate_cipher(cipher));
 
         string ciphertext = encipher(plaintext, cipher);
 
