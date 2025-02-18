@@ -1,6 +1,7 @@
-#include "cs50.h"
 #include "encipher.h"
+#include "cs50.h"
 #include <ctype.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -36,7 +37,13 @@ string encipher(string plaintext, string cipher)
 {
         int length = strlen(plaintext);
 
-        string res = malloc(sizeof(char) * length);
+        char* res = (char*)malloc((length + 1) * sizeof(char));
+
+        if (res == NULL)
+        {
+                printf("Memory allocation failed\n");
+                return NULL;
+        }
 
         for (int i = 0; i < length; i++)
         {
@@ -55,13 +62,15 @@ string encipher(string plaintext, string cipher)
                         res[i] = toupper(cipher[cipher_index]);
                 }
 
-                else
+                else if (islower(c))
                 {
                         // subtract ascii index to count from zero
                         int cipher_index = (int)(c - 97);
                         res[i] = cipher[cipher_index];
                 }
         }
+
+        res[length] = '\0';
 
         return res;
 }
