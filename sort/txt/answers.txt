@@ -1,11 +1,11 @@
-sort1 uses: TODO
+sort1 uses: Bubble sort
 
-How do you know?: TODO
+How do you know?: Big Omega(n) is always fast, but time increases for each bigger unsorted set.
 
-sort2 uses: TODO
+sort2 uses: Merge sort
 
-How do you know?: TODO
+How do you know?: Big O(n) = Big Omega(n). Is much faster than selection sort.
 
-sort3 uses: TODO
+sort3 uses: Selection sort
 
-How do you know?: TODO
+How do you know?: It is the slowest on an already sorted set. Big Omega(n) is always n squared.
