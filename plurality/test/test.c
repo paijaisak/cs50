@@ -1,13 +1,13 @@
 #include <check.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 START_TEST(test1)
 {
-    printf("Test1");
+        printf("Test1");
 }
 END_TEST
-
 
 // Create a suite and add the test case to it
 Suite*
