@@ -1,6 +1,6 @@
 project('plurality', 'c')
 
-src_files = ['src/cs50.c', 'src/plurality.c']
+src_files = ['src/cs50.c']
 
 inc_dir = include_directories('include')
 
@@ -9,6 +9,7 @@ check_dep = dependency('check', required: true)
 executable(
   'plurality',
   src_files,
+  'src/plurality.c',
   include_directories: inc_dir,
   dependencies: check_dep,
 )
