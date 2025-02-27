@@ -82,7 +82,7 @@ END_TEST
 
 START_TEST(count_letters01)
 {
-    ck_assert_int_eq(count_letters("Abk, f asdk o23j."), 10);
+        ck_assert_int_eq(count_letters("Abk, f asdk o23j."), 10);
 }
 END_TEST
 
@@ -91,7 +91,7 @@ END_TEST
 
 START_TEST(count_sentences01)
 {
-    ck_assert_int_eq(count_sentences(grade0), 4);
+        ck_assert_int_eq(count_sentences(grade0), 4);
 }
 END_TEST
 
@@ -99,49 +99,49 @@ END_TEST
 Suite*
 readability_suite(void)
 {
-    Suite* s;
-    TCase* tc_core;
+        Suite* s;
+        TCase* tc_core;
 
-    s = suite_create("Readability");
+        s = suite_create("Readability");
 
-    tc_core = tcase_create("Core");
-    tcase_add_test(tc_core, test_example);
-    tcase_add_test(tc_core, test01);
-    tcase_add_test(tc_core, test02);
-    tcase_add_test(tc_core, test03);
-    tcase_add_test(tc_core, test04);
-    tcase_add_test(tc_core, test05);
-    tcase_add_test(tc_core, test06);
-    tcase_add_test(tc_core, test07);
-    tcase_add_test(tc_core, test08);
-    tcase_add_test(tc_core, test09);
-    tcase_add_test(tc_core, test10);
-    tcase_add_test(tc_core, count_letters01);
-    tcase_add_test(tc_core, count_words01);
-    tcase_add_test(tc_core, count_sentences01);
+        tc_core = tcase_create("Core");
+        tcase_add_test(tc_core, test_example);
+        tcase_add_test(tc_core, test01);
+        tcase_add_test(tc_core, test02);
+        tcase_add_test(tc_core, test03);
+        tcase_add_test(tc_core, test04);
+        tcase_add_test(tc_core, test05);
+        tcase_add_test(tc_core, test06);
+        tcase_add_test(tc_core, test07);
+        tcase_add_test(tc_core, test08);
+        tcase_add_test(tc_core, test09);
+        tcase_add_test(tc_core, test10);
+        tcase_add_test(tc_core, count_letters01);
+        tcase_add_test(tc_core, count_words01);
+        tcase_add_test(tc_core, count_sentences01);
 
-    suite_add_tcase(s, tc_core);
+        suite_add_tcase(s, tc_core);
 
-    return s;
+        return s;
 }
 
 // Main function to run the tests
 int main(void)
 {
-    int number_failed;
-    Suite* s;
-    SRunner* sr;
+        int number_failed;
+        Suite* s;
+        SRunner* sr;
 
-    s = readability_suite();
-    sr = srunner_create(s);
+        s = readability_suite();
+        sr = srunner_create(s);
 
-    srunner_set_xml(sr, "test_results.xml");
-    srunner_set_fork_status(sr, CK_NOFORK);
+        srunner_set_xml(sr, "test_results.xml");
+        srunner_set_fork_status(sr, CK_NOFORK);
 
-    srunner_run_all(sr, CK_VERBOSE);
-    number_failed = srunner_ntests_failed(sr);
+        srunner_run_all(sr, CK_VERBOSE);
+        number_failed = srunner_ntests_failed(sr);
 
-    srunner_free(sr);
+        srunner_free(sr);
 
-    return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
+        return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
