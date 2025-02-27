@@ -64,6 +64,9 @@ void print_winner(void)
         int hi_score = 0;
         int winner_index = 0;
 
+        int winners = 0;
+        int winner_indexes[candidate_count];
+
         for (int i = 0; i < candidate_count; i++)
         {
                 if (candidates[i].votes > hi_score)
@@ -71,9 +74,33 @@ void print_winner(void)
                         hi_score = candidates[i].votes;
                         winner_index = i;
                 }
+
+                // also initialize array
+                winner_indexes[i] = 0;
         }
 
-        printf("Winner is %s with %d points!\n", candidates[winner_index].name, candidates[winner_index].votes);
+        for (int i = 0; i < candidate_count; i++)
+        {
+                if (candidates[i].votes == hi_score)
+                {
+                        winner_indexes[i] = 1;
+                        winners++;
+                }
+        }
+
+        if (winners > 1)
+        {
+                printf("Winners are %s with ", "Paija");
+
+                for (int i = 0; i < winners; i++)
+                {
+                        printf("%d points", 3);
+                }
+        }
+        else
+        {
+                printf("Winner is %s with %d points!\n", candidates[winner_index].name, candidates[winner_index].votes);
+        }
 
         // TODO
         return;
