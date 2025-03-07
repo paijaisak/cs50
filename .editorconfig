@@ -1,0 +1,30 @@
+# EditorConfig helps maintain consistent coding styles
+# See https://editorconfig.org/
+
+# top-most EditorConfig file
+root = true
+
+# All files
+[*]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+trim_trailing_whitespace = true
+
+# C files
+[*.{c,h}]
+indent_style = tab
+indent_size = 8
+
+# Meson build files
+[meson.build]
+indent_style = space
+indent_size = 2
+
+# Makefiles require tabs
+[Makefile]
+indent_style = tab
+
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false
