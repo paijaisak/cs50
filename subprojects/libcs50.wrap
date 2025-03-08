@@ -1,0 +1,4 @@
+[wrap-git]
+url = https://github.com/cs50/libcs50.git
+revision = master
+directory = libcs50
