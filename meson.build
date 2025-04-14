@@ -1,7 +1,7 @@
 project('cs50_projects', 'c',
   version: '1.0.0',
   default_options: [
-    'c_std=c99',
+    'c_std=c17',
     'warning_level=3',
   ]
 )
@@ -16,12 +16,13 @@ add_project_arguments(
     '-Werror=implicit-function-declaration',
     '-Werror=incompatible-pointer-types',
     '-Wno-unused-parameter',
+    '-Wno-unused-includes',
   ]),
   language: 'c'
 )
 
 # Get cs50 dependency from libs directory
-cs50_dep = dependency('cs50', fallback: ['cs50', 'cs50_dep'], required: true, 
+cs50_dep = dependency('cs50', fallback: ['cs50', 'cs50_dep'], required: true,
                      default_options: ['default_library=static'])
 
 # Define each subproject
