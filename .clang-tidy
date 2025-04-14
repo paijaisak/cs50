@@ -1,0 +1,11 @@
+Checks: >
+  -*,
+  bugprone-*,  # Detect potential bugs
+  performance-*, # Optimize performance
+  readability-*, # Improve readability
+  cppcoreguidelines-*, # C++ Core Guidelines (also relevant to C)
+  cert-* # Security guidelines
+Language: C # Focus on C rather than C++
+WarningsAsErrors: '*'
+HeaderFilterRegex: '.*' # Include all headers
+FormatStyle: file # Use .clang-format for formatting

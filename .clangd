@@ -1,0 +1,29 @@
+CompileFlags:
+  # Add additional compiler flags here if needed
+  Add: []
+  # Treat all headers as C
+  Add: [-xc]
+
+Diagnostics:
+  # Suppress specific warnings
+  Suppress:
+    - unused-includes
+
+  # Use external clang-tidy configuration
+  ClangTidy:
+    Add: []
+    Remove: []
+    CheckOptions:
+      # Use the .clang-tidy file for configuration
+      ConfigFile: .clang-tidy
+
+# Language-specific settings
+If:
+  PathMatch: .*\.(c|h)$
+CompileFlags:
+  Add: [-std=c99]
+
+If:
+  PathMatch: .*\.(cpp|hpp|cc|cxx)$
+CompileFlags:
+  Add: [-std=c++17]
