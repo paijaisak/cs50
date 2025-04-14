@@ -1,5 +1,4 @@
 #include "plurality.h"
-#include <cs50.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -106,6 +105,4 @@ print_winner(void)
 		    candidates[winner_index].name,
 		    candidates[winner_index].votes);
 	}
-
-	return;
 }
