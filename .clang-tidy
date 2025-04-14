@@ -1,6 +1,8 @@
 Checks: >
   -*,
   bugprone-*,  # Detect potential bugs
+  misc-*,
+  modernize-*,
   performance-*, # Optimize performance
   readability-*, # Improve readability
   cppcoreguidelines-*, # C++ Core Guidelines (also relevant to C)
