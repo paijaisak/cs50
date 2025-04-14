@@ -16,9 +16,10 @@ typedef struct
 candidate candidates[MAX];
 
 // Number of candidates
-int candidate_count;
+extern int candidate_count;
 
 // Function prototypes
+void init_candidate(int index, string name);
 bool vote(string name);
 void print_winner(void);
 
