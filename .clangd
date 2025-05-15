@@ -1,6 +1,6 @@
 CompileFlags:
-  # Add additional compiler flags here if needed
-  Add: []
+  # Specify compile_commands.json location
+  CompilationDatabase: builddir
   # Treat all headers as C
   Add: [-xc]
 
