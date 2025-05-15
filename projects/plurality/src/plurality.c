@@ -5,7 +5,8 @@
 // Define the candidate_count variable (declared as extern in the header)
 int candidate_count = 0;
 
-void init_candidate(int index, string name)
+void
+init_candidate(int index, string name)
 {
 	candidates[index].name = name;
 	candidates[index].votes = 0;

@@ -1,12 +1,11 @@
 #include "plurality.h"
 #include <check.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 void
 setup(void)
 {
+	candidate_count = 3; // Set the number of candidates
 	init_candidate(0, "Alice");
 	init_candidate(1, "Bob");
 	init_candidate(2, "Paya");
@@ -58,7 +57,7 @@ START_TEST(test4)
 }
 // Create a suite and add the test case to it
 Suite *
-readability_suite(void)
+plurality_suite(void)
 {
 	Suite *suite;
 	TCase *tc_core;
@@ -86,7 +85,7 @@ main(void)
 	Suite *s;
 	SRunner *sr;
 
-	s = readability_suite();
+	s = plurality_suite();
 	sr = srunner_create(s);
 
 	srunner_set_xml(sr, "test_results.xml");
