@@ -1,5 +1,6 @@
 #include "plurality.h"
 #include <check.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 void
@@ -41,8 +42,23 @@ START_TEST(test3)
 	vote("Alice");
 	ck_assert(candidates[0].votes == 1);
 }
+END_TEST
 
 START_TEST(test4)
+{
+	vote("Bob");
+	ck_assert(candidates[1].votes == 1);
+}
+END_TEST
+
+START_TEST(test5)
+{
+	vote("Alice");
+	ck_assert(candidates[2].votes == 0);
+}
+END_TEST
+
+START_TEST(test6)
 {
 	vote("Alice");
 	vote("Bob");
@@ -55,6 +71,79 @@ START_TEST(test4)
 	ck_assert_int_eq(3, candidates[1].votes);
 	ck_assert_int_eq(2, candidates[2].votes);
 }
+END_TEST
+
+START_TEST(test7)
+{
+	vote("Alice");
+	vote("Bob");
+	vote("Bob");
+	vote("Bob");
+	vote("Paya");
+	vote("Paya");
+	vote("False");
+	vote("Name");
+
+	ck_assert_int_eq(1, candidates[0].votes);
+	ck_assert_int_eq(3, candidates[1].votes);
+	ck_assert_int_eq(2, candidates[2].votes);
+}
+END_TEST
+
+START_TEST(test8)
+{
+	vote("Alice");
+
+	int number_of_winners = 0;
+
+	candidate *winner = get_winner(candidates, &number_of_winners);
+	ck_assert_int_eq(1, number_of_winners);
+	ck_assert_str_eq("Alice", winner->name);
+
+	printf("%s", candidates[0].name);
+
+	free(winner);
+}
+END_TEST
+
+START_TEST(test9)
+{
+	vote("Alice");
+	vote("Alice");
+	vote("Bob");
+	vote("Paya");
+	vote("Bing");
+	vote("Paya");
+
+	int number_of_winners = 0;
+	candidate *winner = get_winner(candidates, &number_of_winners);
+	ck_assert_int_eq(2, number_of_winners);
+
+	ck_assert_str_eq("Alice", winner[0].name);
+
+	free(winner);
+}
+END_TEST
+
+START_TEST(test10)
+{
+	vote("Alice");
+	vote("Alice");
+	vote("Bob");
+	vote("Paya");
+	vote("Bing");
+	vote("Paya");
+
+	int number_of_winners = 0;
+	candidate *winners = get_winner(candidates, &number_of_winners);
+	ck_assert_int_eq(2, number_of_winners);
+
+	ck_assert_str_eq("Paya", winners[1].name);
+
+	free(winners);
+}
+END_TEST
+
 // Create a suite and add the test case to it
 Suite *
 plurality_suite(void)
@@ -71,6 +160,12 @@ plurality_suite(void)
 	tcase_add_test(tc_core, test2);
 	tcase_add_test(tc_core, test3);
 	tcase_add_test(tc_core, test4);
+	tcase_add_test(tc_core, test5);
+	tcase_add_test(tc_core, test6);
+	tcase_add_test(tc_core, test7);
+	tcase_add_test(tc_core, test8);
+	tcase_add_test(tc_core, test9);
+	tcase_add_test(tc_core, test10);
 
 	suite_add_tcase(suite, tc_core);
 
