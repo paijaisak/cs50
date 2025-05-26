@@ -22,5 +22,6 @@ extern int candidate_count;
 void init_candidate(int index, string name);
 bool vote(string name);
 void print_winner(void);
+candidate *get_winner(candidate candidates[candidate_count], int *out_winners);
 
 #endif // PLURALITY_H
